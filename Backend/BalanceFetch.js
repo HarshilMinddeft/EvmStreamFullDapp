@@ -2,6 +2,7 @@ require('dotenv').config();
 const { ethers ,JsonRpcProvider } = require('ethers');
 const cron = require('cron');
 
+// const RPC_url = process.env.RPC_URL;
 // console.log("Ethers library loaded:", ethers);
 // Load environment variables
 const provider = new JsonRpcProvider("https://alfajores-forno.celo-testnet.org");
@@ -62,7 +63,7 @@ async function checkAndStopStream(sender) {
 const streamsToCheck = [
     { sender: "0xe917e81c69Bf15238c63abd45d1c335C2fc80bDD"  
     },
-    { sender: "0x98b8bcad3f314ca03e2d0eb20bab5c666434409b"}
+    // { sender: "0x98b8bcad3f314ca03e2d0eb20bab5c666434409b"}
 ];
 
 // Schedule the job every 2 seconds

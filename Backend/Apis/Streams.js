@@ -6,15 +6,16 @@ const router = express.Router();
 router.post("/addStream", async (req, res) => {
     try {
         // Destructure data from the request body
-        const { senderAddress, reciverAddress, fee, currentTime, flowRate } = req.body;
+        const {streamId, senderAddress, reciverAddress, fee, currentTime, flowRate } = req.body;
 
         // Validate required fields
-        if (!senderAddress || !reciverAddress || !fee || !currentTime || !flowRate) {
+        if (!streamId ||!senderAddress || !reciverAddress || !fee || !currentTime || !flowRate) {
             return res.status(400).json({ message: "All fields are required." });
         }
 
         // Create a new stream document
         const newStream = new Users({
+            streamId,
             senderAddress,
             reciverAddress,
             fee,
